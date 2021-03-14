@@ -27,6 +27,7 @@ Setting up the project:
 
 5. Open up a terminal in VS Code (ctrl + `)
 6. In the Q3DF.API directory, do:
-- `dotnet user-secrets set ConnectionStrings:Defrag "Server=localhost;Database=Defrag;User ID=yourdbuser;Password=yourdbpassword"`
+- `dotnet user-secrets init`
+- `dotnet user-secrets set "ConnectionStrings:Defrag" "Server=localhost;Database=Defrag;User ID=yourdbuser;Password=yourdbpassword"`
 - `dotnet run`
-7. Once done building, navigate to https://localhost:5001/swagger/index.html. If you see the swagger page for the project, you'd made it!
+8. Once done building, navigate to https://localhost:5001/swagger/index.html. If you see the swagger page for the project, you'd made it!
