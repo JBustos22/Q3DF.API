@@ -21,9 +21,11 @@ Setting up the project:
 3. Clone the repository
 
 4. Set up the database:
+- Choose a username + password for your MySQL server
 - Open up MySQL WorkBench
-- Create Database 'Defrag' and choose a username + password for it
-- Connect to the database, restore Q3DF.API\Data\Dump20210303.sql
+- Connect to your MySQL server,
+- Create a new database called 'Defrag': https://dev.mysql.com/doc/workbench/en/wb-getting-started-tutorial-creating-a-model.html
+- Restore Q3DF.API\Data\Dump20210303.sql into the database: https://dev.mysql.com/doc/workbench/en/wb-mysql-enterprise-backup-backup-recovery.html
 
 5. Open up a terminal in VS Code (ctrl + `)
 6. In the Q3DF.API directory, do:
