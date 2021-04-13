@@ -1,0 +1,25 @@
+version: "3.4"
+services:
+  q3df:
+    build:
+      context: .
+      dockerfile: Api/Dockerfile
+
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Defrag=Server=database;Database=Defrag;User ID=user;Password=strongpassword
+    ports:
+      - "8000:80"
+    depends_on:
+      - database
+
+  database:
+    image: mysql:8.0.22
+    volumes:
+      - ./local/db:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: strongpassword
+      MYSQL_DATABASE: Defrag
+      MYSQL_USER: user
+      MYSQL_PASSWORD: strongpassword

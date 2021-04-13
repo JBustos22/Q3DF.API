@@ -36,7 +36,7 @@ namespace Q3DF.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Q3DF.API", Version = "v1" });
             });
 
-            services.AddDbContext<DefragContext>(options => options.UseMySql(Configuration.GetConnectionString("Defrag")));
+            services.AddDbContext<DefragContext>(options => options.UseMySql(Configuration.GetConnectionString("Defrag"), new MySqlServerVersion(new Version(8, 0, 22))));
             services.AddDatabaseDeveloperPageExceptionFilter();
         }
 

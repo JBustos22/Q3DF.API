@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 #nullable disable
 
@@ -52,7 +53,7 @@ namespace Q3DF.API.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql(Configuration.GetConnectionString("Defrag"), x => x.ServerVersion("8.0.23-mysql"));
+                optionsBuilder.UseMySql(Configuration.GetConnectionString("Defrag"), new MySqlServerVersion(new Version(8, 0, 22)));
             }
         }
 
@@ -68,14 +69,14 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(50)")
                     .HasColumnName("cmd")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Description)
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("description")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -100,8 +101,9 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(255)")
                     .HasColumnName("filename")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
+                // .HasCharSet("utf8")
 
                 entity.Property(e => e.Size).HasColumnName("size");
             });
@@ -121,7 +123,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(100)")
                     .HasColumnName("mapname")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Timeout).HasColumnName("timeout");
@@ -153,14 +155,14 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(100)")
                     .HasColumnName("defrag_version")
                     .HasDefaultValueSql("'19108'")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Map)
                     .IsRequired()
                     .HasColumnType("varchar(100)")
                     .HasColumnName("map")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Mode).HasColumnName("mode");
@@ -171,7 +173,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("text")
                     .HasColumnName("nickname")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.O3jVersion)
@@ -179,7 +181,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(100)")
                     .HasColumnName("o3j_version")
                     .HasDefaultValueSql("'1016'")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Physic).HasColumnName("physic");
@@ -196,7 +198,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("mediumtext")
                     .HasColumnName("userinfostring")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -223,14 +225,14 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(100)")
                     .HasColumnName("defrag_version")
                     .HasDefaultValueSql("'19108'")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Map)
                     .IsRequired()
                     .HasColumnType("varchar(100)")
                     .HasColumnName("map")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Mode).HasColumnName("mode");
@@ -241,7 +243,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("text")
                     .HasColumnName("nickname")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.O3jVersion)
@@ -249,7 +251,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(100)")
                     .HasColumnName("o3j_version")
                     .HasDefaultValueSql("'1016'")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Physic).HasColumnName("physic");
@@ -264,7 +266,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("mediumtext")
                     .HasColumnName("userinfostring")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -279,14 +281,14 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(100)")
                     .HasColumnName("defrag_version")
                     .HasDefaultValueSql("'19108'")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Map)
                     .IsRequired()
                     .HasColumnType("varchar(100)")
                     .HasColumnName("map")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Mode).HasColumnName("mode");
@@ -297,7 +299,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("text")
                     .HasColumnName("nickname")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.O3jVersion)
@@ -305,7 +307,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(100)")
                     .HasColumnName("o3j_version")
                     .HasDefaultValueSql("'1016'")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Physic).HasColumnName("physic");
@@ -320,7 +322,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("mediumtext")
                     .HasColumnName("userinfostring")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -334,7 +336,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("char(3)")
                     .HasColumnName("drei")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.IpFrom).HasColumnName("IP_from");
@@ -345,14 +347,14 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(50)")
                     .HasColumnName("name")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Zwei)
                     .IsRequired()
                     .HasColumnType("char(2)")
                     .HasColumnName("zwei")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -381,7 +383,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(255)")
                     .HasColumnName("mapname")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Physic).HasColumnName("physic");
@@ -391,7 +393,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(32)")
                     .HasColumnName("playername")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Rank).HasColumnName("rank");
@@ -407,7 +409,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(96)")
                     .HasColumnName("visname")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -423,7 +425,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("mediumtext")
                     .HasColumnName("content")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Datetime)
@@ -435,7 +437,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(255)")
                     .HasColumnName("headline")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Locked).HasColumnName("locked");
@@ -455,7 +457,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("mediumtext")
                     .HasColumnName("comment")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Datetime)
@@ -485,7 +487,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("mediumtext")
                     .HasColumnName("message")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Timestamp).HasColumnName("timestamp");
@@ -503,7 +505,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("text")
                     .HasColumnName("comment")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Del).HasColumnName("del");
@@ -513,7 +515,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(6)")
                     .HasColumnName("flag")
                     .HasDefaultValueSql("'noflag'")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Ip)
@@ -521,14 +523,14 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(15)")
                     .HasColumnName("ip")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("name")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Port).HasColumnName("port");
@@ -538,7 +540,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(255)")
                     .HasColumnName("rcon")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -577,7 +579,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("text")
                     .HasColumnName("parameter")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.ServerId).HasColumnName("server_id");
@@ -597,13 +599,13 @@ namespace Q3DF.API.Models
                 entity.Property(e => e.Mapname)
                     .HasColumnType("varchar(255)")
                     .HasColumnName("mapname")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Comment)
                     .HasColumnType("text")
                     .HasColumnName("comment")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -624,7 +626,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(50)")
                     .HasColumnName("map")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.MaxPlayers).HasColumnName("max_players");
@@ -635,7 +637,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(100)")
                     .HasColumnName("name_colors")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Physic).HasColumnName("physic");
@@ -646,7 +648,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(34)")
                     .HasColumnName("speedaward_name")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -668,7 +670,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(3)")
                     .HasColumnName("country")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.HasSpeedaward).HasColumnName("has_speedaward");
@@ -681,7 +683,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(35)")
                     .HasColumnName("name_colors")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Ping).HasColumnName("ping");
@@ -691,7 +693,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(34)")
                     .HasColumnName("spectator_name")
                     .HasDefaultValueSql("'-1'")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -706,7 +708,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(3)")
                     .HasColumnName("two")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Name)
@@ -714,7 +716,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(255)")
                     .HasColumnName("name")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Three)
@@ -722,7 +724,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(4)")
                     .HasColumnName("three")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -743,7 +745,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("avatar")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.BackendUser).HasColumnName("backend_user");
@@ -754,7 +756,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("text")
                     .HasColumnName("comment")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Country)
@@ -762,14 +764,14 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(3)")
                     .HasColumnName("country")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Dateformat)
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("dateformat")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Del).HasColumnName("del");
@@ -780,14 +782,14 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("email")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Hardware)
                     .IsRequired()
                     .HasColumnType("mediumtext")
                     .HasColumnName("hardware")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.LastActive).HasColumnName("last_active");
@@ -802,21 +804,21 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("newpw")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Newpwkey)
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("newpwkey")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.OldUsername)
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("old_username")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Password)
@@ -824,7 +826,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(255)")
                     .HasColumnName("password")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Serverid).HasColumnName("serverid");
@@ -833,14 +835,14 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("sessionid")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.StripVisname)
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("strip_visname")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Timezone).HasColumnName("timezone");
@@ -850,7 +852,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(255)")
                     .HasColumnName("username")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Visname)
@@ -858,7 +860,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(255)")
                     .HasColumnName("visname")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.WikiAdmin).HasColumnName("wiki_admin");
@@ -881,7 +883,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("avatar")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.BackendUser).HasColumnName("backend_user");
@@ -892,7 +894,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("text")
                     .HasColumnName("comment")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Country)
@@ -900,14 +902,14 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(3)")
                     .HasColumnName("country")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Dateformat)
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("dateformat")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Del).HasColumnName("del");
@@ -918,14 +920,14 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("email")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Hardware)
                     .IsRequired()
                     .HasColumnType("mediumtext")
                     .HasColumnName("hardware")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.LastActive).HasColumnName("last_active");
@@ -936,7 +938,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("old_username")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Password)
@@ -944,7 +946,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(255)")
                     .HasColumnName("password")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Serverid).HasColumnName("serverid");
@@ -953,14 +955,14 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("sessionid")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.StripVisname)
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("strip_visname")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Timezone).HasColumnName("timezone");
@@ -970,7 +972,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(255)")
                     .HasColumnName("username")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Visname)
@@ -978,7 +980,7 @@ namespace Q3DF.API.Models
                     .HasColumnType("varchar(255)")
                     .HasColumnName("visname")
                     .HasDefaultValueSql("''")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.WikiAdmin).HasColumnName("wiki_admin");
@@ -997,14 +999,14 @@ namespace Q3DF.API.Models
                 entity.Property(e => e.Sessionid)
                     .HasColumnType("varchar(255)")
                     .HasColumnName("sessionid")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.RequestUri)
                     .IsRequired()
                     .HasColumnType("text")
                     .HasColumnName("request_uri")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Timestamp).HasColumnName("timestamp");
@@ -1013,7 +1015,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("mediumtext")
                     .HasColumnName("user_agent")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -1080,7 +1082,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("title")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
             });
 
@@ -1094,7 +1096,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(255)")
                     .HasColumnName("answer")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.VoteId).HasColumnName("vote_id");
@@ -1114,7 +1116,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("longtext")
                     .HasColumnName("content")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.Lft).HasColumnName("lft");
@@ -1125,7 +1127,7 @@ namespace Q3DF.API.Models
                     .IsRequired()
                     .HasColumnType("varchar(64)")
                     .HasColumnName("name")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_general_ci");
 
                 entity.Property(e => e.ParentId).HasColumnName("parent_id");
@@ -1165,13 +1167,13 @@ namespace Q3DF.API.Models
                 entity.Property(e => e.Email)
                     .HasColumnType("varchar(255)")
                     .HasColumnName("email")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_bin");
 
                 entity.Property(e => e.Username)
                     .HasColumnType("varchar(255)")
                     .HasColumnName("username")
-                    .HasCharSet("utf8")
+                    .HasCharSet(CharSet.Utf8)
                     .HasCollation("utf8_bin");
             });
 
